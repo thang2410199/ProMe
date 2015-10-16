@@ -33,7 +33,8 @@ namespace ProMe.ViewModel
     public class MainViewModel : ViewModelBase, INavigable
     {
         private string _PageTitle = "Hello World";
-        double ScreenWidth = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView().VisibleBounds.Width;
+        double ScreenWidth = 100;
+        //double ScreenWidth = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView().VisibleBounds.Width;
         public string PageTitle
         {
             get
@@ -57,31 +58,24 @@ namespace ProMe.ViewModel
         /// </summary>
         public MainViewModel()
         {
-            //if (IsInDesignMode)
-            //{
+            if (IsInDesignMode)
+            {
             //    // Code runs in Blend --> create design time data.
             //    PageTitle = "Hello Designer";
 
             //    Restaurants.Add(new Restaurant() { Name = "Dai Phi" });
-            //}
-            //else
-            //{
-            //    // Code runs "for real"
-            //    PageTitle = "Hello Real World";
+            }
+            else
+            {
+                // Code runs "for real"
+                ScreenWidth = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView().VisibleBounds.Width;
+            }
 
-            //    Restaurants.Add(new Restaurant() { Name = "Nanking" });
+            //Restaurants = new ObservableCollection<Restaurant>();
 
-            //}
+            //SwipeTestCommand = new RelayCommand(SwipeTest);
 
-            Restaurants = new ObservableCollection<Restaurant>();
-
-            SwipeTestCommand = new RelayCommand(SwipeTest);
-
-            Messenger.Default.Register<MainPageMessage>
-            (
-                 this,
-                 (action) => ReceiveMessage(action)
-            );
+            //Messenger.Default.Register<MainPageMessage>(this, ReceiveMessage);
         }
 
         
@@ -208,7 +202,7 @@ namespace ProMe.ViewModel
 
             for (int i = 1; i <= ListCard.Count; i++)
             {
-                ListCard[i-1].Margin = new Windows.UI.Xaml.Thickness(0, (ListCard.Count - i) * 5, 0, 0);
+                ListCard[i - 1].Margin = new Windows.UI.Xaml.Thickness(0, (ListCard.Count - i) * 5, 0, 0);
                 Canvas.SetZIndex(ListCard[i - 1], i);
                 ListCard[i - 1].Tag = i;
             }
