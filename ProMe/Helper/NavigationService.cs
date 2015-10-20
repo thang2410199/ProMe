@@ -15,6 +15,7 @@ namespace ProMe
         public static Frame MainFrame;
         public static void Configure(Frame frame)
         {
+            PageDictionary.Add(Pages.Intro, typeof(IntroPage));
             PageDictionary.Add(Pages.MainPage, typeof(MainPage));
             PageDictionary.Add(Pages.RestaurantDetailPage, typeof(RestaurantDetailPage));
 

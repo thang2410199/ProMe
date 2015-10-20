@@ -22,9 +22,51 @@ namespace ProMe.ViewModel
 {
     public class RestaurantDetailViewModel : ViewModelBase, INavigable
     {
+        private Restaurant _CurrentRestaurant = null;
+        public Restaurant CurrentRestaurant
+        {
+            get
+            {
+                return _CurrentRestaurant;
+            }
+            set
+            {
+                Set<Restaurant>(ref _CurrentRestaurant, value);
+            }
+        }
+
+        public RelayCommand OpenRestaurantCommand { get; set; } = new RelayCommand(OpenRestaurant);
+
+        private static void OpenRestaurant()
+        {
+            NavigationService.NavigateTo(Pages.RestaurantDetailPage, new Restaurant());
+        }
+
+        public double ScreenWidth
+        {
+            get
+            {
+                if (IsInDesignMode)
+                    return 300;
+                else
+                    return DesignValue.ScreenWidth;
+            }
+        }
         public RestaurantDetailViewModel()
         {
+            if (IsInDesignMode)
+            {
+                CurrentRestaurant = new Restaurant();
+                CurrentRestaurant.Images.Add(new RestaurantImage("test 1"));
+                CurrentRestaurant.Images.Add(new RestaurantImage("test 2"));
+                CurrentRestaurant.Images.Add(new RestaurantImage("test 3"));
+                CurrentRestaurant.Images.Add(new RestaurantImage("test 4"));
 
+                CurrentRestaurant.Hashtags.Add("#viewdep");
+                CurrentRestaurant.Hashtags.Add("#wifimanh");
+                CurrentRestaurant.Hashtags.Add("#tradao");
+                CurrentRestaurant.Hashtags.Add("#yentinh");
+            }
         }
 
         public bool AllowGoBack()
@@ -34,13 +76,26 @@ namespace ProMe.ViewModel
 
         public void OnNavigatedFrom(NavigationEventArgs e)
         {
-            
+
         }
 
         public async void OnNavigatedTo(NavigationEventArgs e)
         {
-            MessageDialog dialog = new MessageDialog("entered");
-            await dialog.ShowAsync();
+            CurrentRestaurant = e.Parameter as Restaurant;
+            //TEST DATA
+            if (CurrentRestaurant.Images.Count == 0)
+            {
+                CurrentRestaurant.Images.Add(new RestaurantImage("test 1"));
+                CurrentRestaurant.Images.Add(new RestaurantImage("test 2"));
+                CurrentRestaurant.Images.Add(new RestaurantImage("test 3"));
+                CurrentRestaurant.Images.Add(new RestaurantImage("test 4"));
+
+                CurrentRestaurant.Hashtags.Add("#viewdep");
+                CurrentRestaurant.Hashtags.Add("#wifimanh");
+                CurrentRestaurant.Hashtags.Add("#tradao");
+                CurrentRestaurant.Hashtags.Add("#yentinh");
+            }
+
         }
 
         public void OnNavigatingFrom(NavigatingCancelEventArgs e)

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using ProMe.ViewModel;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -36,8 +38,13 @@ namespace ProMe
         {
             this.InitializeComponent();
             this.Suspending += this.OnSuspending;
-
+            this.UnhandledException += App_UnhandledException;
             HardwareButtons.BackPressed += HardwareButtons_BackPressed;
+        }
+
+        private void App_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            Debugger.Break();
         }
 
         private void HardwareButtons_BackPressed(object sender, BackPressedEventArgs e)
@@ -64,6 +71,8 @@ namespace ProMe
             }
 #endif
 
+            DesignValue.ScreenWidth = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView().VisibleBounds.Width;
+
             Frame rootFrame = Window.Current.Content as Frame;
 
             // Do not repeat app initialization when the Window already has content,
@@ -85,6 +94,7 @@ namespace ProMe
                 // Place the frame in the current Window
                 Window.Current.Content = rootFrame;
             }
+            NavigationService.Configure(rootFrame);
 
             if (rootFrame.Content == null)
             {
@@ -104,12 +114,12 @@ namespace ProMe
                 // When the navigation stack isn't restored navigate to the first page,
                 // configuring the new page by passing required information as a navigation
                 // parameter
-                if (!rootFrame.Navigate(typeof(MainPage), e.Arguments))
-                {
-                    throw new Exception("Failed to create initial page");
-                }
+                NavigationService.NavigateTo(Pages.Intro);
+                //if (!rootFrame.Navigate(typeof(MainPage), e.Arguments))
+                //{
+                //    throw new Exception("Failed to create initial page");
+                //}
             }
-            NavigationService.Configure(rootFrame);
             // Ensure the current window is active
             Window.Current.Activate();
         }

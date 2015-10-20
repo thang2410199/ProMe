@@ -1,41 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest" xmlns:m3="http://schemas.microsoft.com/appx/2014/manifest" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest">
-
-  <Identity Name="78da4b05-ea14-4882-abb5-135e8b7579b4"
-            Publisher="CN=thang"
-            Version="1.0.0.0" />
-
-  <mp:PhoneIdentity PhoneProductId="78da4b05-ea14-4882-abb5-135e8b7579b4" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
-
+  <Identity Name="18582StarfrostStudio.ProMeBeta" Publisher="CN=BE39D269-678F-4C2F-8AE2-7B113A4A9F5F" Version="1.1.0.0" />
+  <mp:PhoneIdentity PhoneProductId="12955a37-544b-41e1-b84b-bd2a74737dd8" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>ProMe</DisplayName>
-    <PublisherDisplayName>thang</PublisherDisplayName>
+    <DisplayName>Pro Me Beta</DisplayName>
+    <PublisherDisplayName>Starfrost Studio</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
-
   <Prerequisites>
     <OSMinVersion>6.3.1</OSMinVersion>
     <OSMaxVersionTested>6.3.1</OSMaxVersionTested>
   </Prerequisites>
-  
   <Resources>
-    <Resource Language="x-generate"/>
+    <Resource Language="x-generate" />
   </Resources>
-
   <Applications>
-    <Application Id="App"
-        Executable="$targetnametoken$.exe"
-        EntryPoint="ProMe.App">
-        <m3:VisualElements
-            DisplayName="ProMe"
-            Square150x150Logo="Assets\Logo.png"
-            Square44x44Logo="Assets\SmallLogo.png"
-            Description="ProMe"
-            ForegroundText="light"
-            BackgroundColor="transparent">
-            <m3:DefaultTile Wide310x150Logo="Assets\WideLogo.png" Square71x71Logo="Assets\Square71x71Logo.png"/>
-            <m3:SplashScreen Image="Assets\SplashScreen.png"/>
-        </m3:VisualElements>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="ProMe.App">
+      <m3:VisualElements DisplayName="Pro Me Beta" Square150x150Logo="Assets\Logo.png" Square44x44Logo="Assets\SmallLogo.png" Description="ProMe" ForegroundText="light" BackgroundColor="transparent">
+        <m3:DefaultTile Wide310x150Logo="Assets\WideLogo.png" Square71x71Logo="Assets\Square71x71Logo.png">
+        </m3:DefaultTile>
+        <m3:SplashScreen Image="Assets\SplashScreen.png" />
+      </m3:VisualElements>
     </Application>
   </Applications>
   <Capabilities>

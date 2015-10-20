@@ -68,14 +68,14 @@ namespace ProMe.ViewModel
             else
             {
                 // Code runs "for real"
-                ScreenWidth = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView().VisibleBounds.Width;
+                ScreenWidth = DesignValue.ScreenWidth;
             }
 
-            //Restaurants = new ObservableCollection<Restaurant>();
+            Restaurants = new ObservableCollection<Restaurant>();
 
-            //SwipeTestCommand = new RelayCommand(SwipeTest);
+            SwipeTestCommand = new RelayCommand(SwipeTest);
 
-            //Messenger.Default.Register<MainPageMessage>(this, ReceiveMessage);
+            Messenger.Default.Register<MainPageMessage>(this, ReceiveMessage);
         }
 
         
@@ -98,7 +98,7 @@ namespace ProMe.ViewModel
                 RestaurantCell border = new RestaurantCell();
                 border.DataContext = new Restaurant();
                 border.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Stretch;
-                border.ManipulationMode = Windows.UI.Xaml.Input.ManipulationModes.All;
+                //border.ManipulationMode = Windows.UI.Xaml.Input.ManipulationModes.All;
                 border.RenderTransformOrigin = new Windows.Foundation.Point(0.5, 4);
                 var transform = new CompositeTransform();
                 border.RenderTransform = transform;
@@ -179,7 +179,7 @@ namespace ProMe.ViewModel
 
         private void Border_ManipulationStarted(object sender, ManipulationStartedRoutedEventArgs e)
         {
-
+            
         }
 
         private void SwipeTest()

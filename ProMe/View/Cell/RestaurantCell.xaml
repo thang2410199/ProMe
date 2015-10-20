@@ -6,29 +6,33 @@
              xmlns:i="using:Microsoft.Xaml.Interactivity"
              xmlns:local="using:ProMe.View.Cell"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             ManipulationMode="All"
              d:DesignHeight="700"
              d:DesignWidth="600"
              mc:Ignorable="d">
 
-    <Grid x:Name="root" Background="White">
-        <!--<i:Interaction.Behaviors>
+    <Grid x:Name="root">
+        <i:Interaction.Behaviors>
             <core:EventTriggerBehavior EventName="Tapped">
                 <core:InvokeCommandAction Command="{Binding ViewDetailCommand}" />
             </core:EventTriggerBehavior>
-        </i:Interaction.Behaviors>-->
+        </i:Interaction.Behaviors>
         <StackPanel>
             <Grid x:Name="HeroImage"
                   Height="{Binding ActualWidth,
                                    ElementName=root,
                                    Mode=OneWay}"
                   Background="Crimson" />
-            <Grid Height="40">
+            <Grid Height="40"  Background="White">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                     <ColumnDefinition Width="160" />
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Margin="8" Text="{Binding Name}" Foreground="Black" TextWrapping="Wrap"/>
+                <TextBlock Margin="8"
+                           Foreground="Black"
+                           Text="{Binding Name}"
+                           TextWrapping="Wrap" />
 
                 <Border Grid.Column="1"
                         Width="24"
@@ -54,6 +58,8 @@
                         HorizontalAlignment="Right"
                         Background="Crimson" />
             </Grid>
+            
+            <Grid Background="Black" Opacity="0.4" Height="3"/>
         </StackPanel>
     </Grid>
 </UserControl>

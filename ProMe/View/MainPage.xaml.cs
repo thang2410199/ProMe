@@ -38,6 +38,8 @@ namespace ProMe
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            if (e.NavigationMode == NavigationMode.Back)
+                return;
             var msg = new MainPageMessage();
             msg.CardStack = CardStack;
             Messenger.Default.Send<MainPageMessage>(msg);

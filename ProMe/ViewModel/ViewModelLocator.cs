@@ -47,6 +47,7 @@ namespace ProMe.ViewModel
             ////    SimpleIoc.Default.Register<IDataService, DataService>();
             ////}
 
+            SimpleIoc.Default.Register<IntroViewModel>();
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<RestaurantDetailViewModel>();
         }
@@ -67,13 +68,21 @@ namespace ProMe.ViewModel
             }
         }
 
+        public IntroViewModel Intro
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<IntroViewModel>();
+            }
+        }
+
         //private INavigationService CreateNavigationService()
         //{
         //    var navigationService = new NavigationService();
         //    navigationService.Configure(Pages.MainPage.ToString(), typeof(MainPage));
         //    navigationService.Configure(Pages.RestaurantDetailPage.ToString(), typeof(RestaurantDetailPage));
         //    // navigationService.Configure("key2", typeof(OtherPage2));
-            
+
         //    return navigationService;
         //}
 
@@ -87,6 +96,7 @@ namespace ProMe.ViewModel
 
     public enum Pages
     {
+        Intro,
         MainPage,
         RestaurantDetailPage
     }

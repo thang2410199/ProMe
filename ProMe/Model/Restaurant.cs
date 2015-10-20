@@ -3,6 +3,7 @@ using GalaSoft.MvvmLight.Command;
 using ProMe.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,6 +28,22 @@ namespace ProMe.Model
             }
         }
 
+        private string _Address = "";
+        public string Address
+        {
+            get
+            {
+                return _Address;
+            }
+            set
+            {
+                Set(() => Address, ref _Address, value);
+            }
+        }
+
+        public ObservableCollection<RestaurantImage> Images { get; set; } = new ObservableCollection<RestaurantImage>();
+        public ObservableCollection<string> Hashtags { get; set; } = new ObservableCollection<string>();
+
 
         public RelayCommand ViewDetailCommand { get; set; }
         Action ViewDetailAction;
@@ -37,11 +54,13 @@ namespace ProMe.Model
             ViewDetailCommand = new RelayCommand(ViewDetailAction);
 
             Name = Guid.NewGuid().ToString();
+            Address = "86-83 Cao Thang, Q3";
         }
 
-        private void ViewDetail()
+        private async void ViewDetail()
         {
-            NavigationService.NavigateTo(Pages.RestaurantDetailPage);
+            await Task.Delay(200);
+            NavigationService.NavigateTo(Pages.RestaurantDetailPage, this);
         }
 
         public override string ToString()

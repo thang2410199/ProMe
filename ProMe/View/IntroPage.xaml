@@ -1,0 +1,29 @@
+﻿<local:BindablePage x:Class="ProMe.View.IntroPage"
+                    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                    xmlns:local="using:ProMe.View"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    xmlns:model="using:ProMe.Model"
+                    xmlns:viewModel="using:ProMe.ViewModel"
+                    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+                    DataContext="{Binding Intro,
+                                          Mode=OneWay,
+                                          Source={StaticResource Locator}}"
+                    mc:Ignorable="d">
+
+    <Grid>
+
+        <StackPanel>
+            <TextBox PlaceholderText="email" />
+            <PasswordBox PlaceholderText="password" />
+            <Button HorizontalAlignment="Right"
+                    Command="{Binding LoginCommand}"
+                    Content="login" />
+        </StackPanel>
+
+        <Button HorizontalAlignment="Center"
+                Command="{Binding FB_LoginCommand}"
+                Content="login with Facebook" />
+    </Grid>
+</local:BindablePage>

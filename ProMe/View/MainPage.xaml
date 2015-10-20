@@ -52,7 +52,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>-->
-        <Grid x:Name="CardStack" Grid.Row="1" />
+        <Grid x:Name="CardStack" Grid.Row="1" Background="White"/>
 
         <!--<Border x:Name="UnderCard"
                 Width="300"
@@ -96,7 +96,7 @@
             <Ellipse Width="80"
                      Height="80"
                      Margin="100,0,0,20"
-                     Fill="Ivory" />
+                     Fill="Green" />
             <Ellipse Width="80"
                      Height="80"
                      VerticalAlignment="Bottom"
@@ -105,11 +105,11 @@
 
         <TextBox Grid.Row="1"
                  VerticalAlignment="Bottom"
-                 Background="Gray" />
+                 Background="Transparent" />
     </Grid>
 
     <local:BindablePage.BottomAppBar>
-        <CommandBar>
+        <CommandBar ClosedDisplayMode="Minimal">
             <CommandBar.SecondaryCommands>
                 <AppBarButton Label="setting" />
             </CommandBar.SecondaryCommands>
