@@ -40,6 +40,18 @@ namespace ProMe.Model
                 Set(() => Address, ref _Address, value);
             }
         }
+        string _DealImage = "";
+        public string DealImage
+        {
+            get
+            {
+                return _DealImage;
+            }
+            set
+            {
+                Set(() => DealImage, ref _DealImage, value);
+            }
+        }
 
         public ObservableCollection<RestaurantImage> Images { get; set; } = new ObservableCollection<RestaurantImage>();
         public ObservableCollection<string> Hashtags { get; set; } = new ObservableCollection<string>();

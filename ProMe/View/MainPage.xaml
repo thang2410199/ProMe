@@ -52,7 +52,9 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>-->
-        <Grid x:Name="CardStack" Grid.Row="1" Background="White"/>
+        <Grid x:Name="CardStack"
+              Grid.Row="1"
+              Background="White" />
 
         <!--<Border x:Name="UnderCard"
                 Width="300"
@@ -84,35 +86,55 @@
             </Border.RenderTransform>
         </Border>-->
 
-        <Grid x:Name="Indicator"
-              Grid.Row="1"
-              Height="100"
-              Margin="0,0,0,60"
-              VerticalAlignment="Bottom">
+        <StackPanel x:Name="Indicator"
+                    Grid.Row="1"
+                    Height="100"
+                    Margin="0,0,0,20"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    Orientation="Horizontal">
+            <Ellipse Width="60"
+                     Height="60"
+                     Margin="0,0,-6,0"
+                     VerticalAlignment="Top"
+                     Fill="Khaki"
+                     Stroke="Gray"
+                     StrokeThickness="4" />
             <Ellipse Width="80"
                      Height="80"
-                     Margin="0,0,100,20"
-                     Fill="Indigo" />
+                     Margin="0,0,-2,0"
+                     Fill="Indigo"
+                     Stroke="Gray"
+                     StrokeThickness="4" />
             <Ellipse Width="80"
                      Height="80"
-                     Margin="100,0,0,20"
-                     Fill="Green" />
-            <Ellipse Width="80"
-                     Height="80"
-                     VerticalAlignment="Bottom"
-                     Fill="Khaki" />
-        </Grid>
+                     Margin="-2,0,0,0"
+                     Fill="Green"
+                     Stroke="Gray"
+                     StrokeThickness="4" />
+            <Ellipse Width="60"
+                     Height="60"
+                     Margin="-6,0,0,0"
+                     VerticalAlignment="Top"
+                     Fill="Orange"
+                     Stroke="Gray"
+                     StrokeThickness="4" />
+        </StackPanel>
 
-        <TextBox Grid.Row="1"
-                 VerticalAlignment="Bottom"
-                 Background="Transparent" />
+        <TextBlock Grid.Row="1"
+                   Margin="10"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Bottom"
+                   FontSize="16"
+                   Foreground="Navy"
+                   Text="Bạn biết tên quán?" />
     </Grid>
 
-    <local:BindablePage.BottomAppBar>
+    <!--<local:BindablePage.BottomAppBar>
         <CommandBar ClosedDisplayMode="Minimal">
             <CommandBar.SecondaryCommands>
                 <AppBarButton Label="setting" />
             </CommandBar.SecondaryCommands>
         </CommandBar>
-    </local:BindablePage.BottomAppBar>
+    </local:BindablePage.BottomAppBar>-->
 </local:BindablePage>

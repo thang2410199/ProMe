@@ -11,55 +11,68 @@
              d:DesignWidth="600"
              mc:Ignorable="d">
 
-    <Grid x:Name="root">
+
+    <Border x:Name="root" CornerRadius="8">
         <i:Interaction.Behaviors>
             <core:EventTriggerBehavior EventName="Tapped">
                 <core:InvokeCommandAction Command="{Binding ViewDetailCommand}" />
             </core:EventTriggerBehavior>
         </i:Interaction.Behaviors>
         <StackPanel>
-            <Grid x:Name="HeroImage"
-                  Height="{Binding ActualWidth,
-                                   ElementName=root,
-                                   Mode=OneWay}"
-                  Background="Crimson" />
-            <Grid Height="40"  Background="White">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition Width="160" />
-                </Grid.ColumnDefinitions>
+            <Border x:Name="HeroImage"
+                    Height="{Binding ActualWidth,
+                                     ElementName=root,
+                                     Mode=OneWay}"
+                    CornerRadius="8,8,0,0">
+                <Border.Background>
+                    <ImageBrush ImageSource="{Binding DealImage}" />
+                </Border.Background>
+            </Border>
+            <Border Background="White" CornerRadius="0,0,8,8">
+                <Grid Height="40">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="160" />
+                    </Grid.ColumnDefinitions>
 
-                <TextBlock Margin="8"
-                           Foreground="Black"
-                           Text="{Binding Name}"
-                           TextWrapping="Wrap" />
+                    <TextBlock Margin="8"
+                               Foreground="Black"
+                               Text="{Binding Name}"
+                               TextWrapping="Wrap" />
 
-                <Border Grid.Column="1"
-                        Width="24"
-                        Margin="8"
-                        HorizontalAlignment="Left"
-                        Background="Crimson" />
+                    <Border Grid.Column="1"
+                            Width="24"
+                            Margin="8"
+                            HorizontalAlignment="Left"
+                            Background="Crimson" />
 
-                <Border Grid.Column="1"
-                        Width="24"
-                        Margin="8,8,8,8"
-                        HorizontalAlignment="Right"
-                        Background="Crimson" />
+                    <Border Grid.Column="1"
+                            Width="24"
+                            Margin="8,8,8,8"
+                            HorizontalAlignment="Right"
+                            Background="Crimson" />
 
-                <Border Grid.Column="1"
-                        Width="24"
-                        Margin="8,8,40,8"
-                        HorizontalAlignment="Right"
-                        Background="Crimson" />
+                    <Border Grid.Column="1"
+                            Width="24"
+                            Margin="8,8,40,8"
+                            HorizontalAlignment="Right"
+                            Background="Crimson" />
 
-                <Border Grid.Column="1"
-                        Width="24"
-                        Margin="8,8,72,8"
-                        HorizontalAlignment="Right"
-                        Background="Crimson" />
-            </Grid>
-            
-            <Grid Background="Black" Opacity="0.4" Height="3"/>
+                    <Border Grid.Column="1"
+                            Width="24"
+                            Margin="8,8,72,8"
+                            HorizontalAlignment="Right"
+                            Background="Crimson" />
+
+                </Grid>
+            </Border>
+
+
+            <Grid Grid.ColumnSpan="2"
+                  Height="3"
+                  VerticalAlignment="Bottom"
+                  Background="Black"
+                  Opacity="0.4" />
         </StackPanel>
-    </Grid>
+    </Border>
 </UserControl>

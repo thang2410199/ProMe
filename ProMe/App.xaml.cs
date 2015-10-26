@@ -10,6 +10,7 @@ using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Phone.UI.Input;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -71,7 +72,10 @@ namespace ProMe
             }
 #endif
 
-            DesignValue.ScreenWidth = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView().VisibleBounds.Width;
+            DesignValue.ScreenWidth = ApplicationView.GetForCurrentView().VisibleBounds.Width;
+            ApplicationView.GetForCurrentView().SetDesiredBoundsMode(ApplicationViewBoundsMode.UseCoreWindow);
+            var statusBar = StatusBar.GetForCurrentView();
+            statusBar.HideAsync();
 
             Frame rootFrame = Window.Current.Content as Frame;
 

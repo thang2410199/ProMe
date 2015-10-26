@@ -3,6 +3,7 @@
                     xmlns:local="using:ProMe">
 
     <Style TargetType="TextBlock">
+        <Setter Property="IsTextScaleFactorEnabled" Value="False" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalAlignment" Value="Center" />
     </Style>

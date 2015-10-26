@@ -96,7 +96,9 @@ namespace ProMe.ViewModel
             for (int i = 1; i <= 5; i++)
             {
                 RestaurantCell border = new RestaurantCell();
-                border.DataContext = new Restaurant();
+                var data = new Restaurant();
+                data.DealImage = "/Assets/Demo/deal_" + i.ToString() + ".jpg";
+                border.DataContext = data;
                 border.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Stretch;
                 //border.ManipulationMode = Windows.UI.Xaml.Input.ManipulationModes.All;
                 border.RenderTransformOrigin = new Windows.Foundation.Point(0.5, 4);
@@ -105,9 +107,10 @@ namespace ProMe.ViewModel
                 border.IsHitTestVisible = false;
                 border.ManipulationDelta += Border_ManipulationDelta;
                 border.ManipulationCompleted += Border_ManipulationCompleted;
-
-                border.Margin = new Windows.UI.Xaml.Thickness(0, (5 - i) * 5, 0, 0);
-                border.SetBackground(new SolidColorBrush(Color.FromArgb(255, (byte)rand.Next(0, 255), (byte)rand.Next(0, 255), (byte)rand.Next(0, 255))));
+                transform.TranslateY = (5 - i);
+                transform.ScaleX = transform.ScaleY = 1 - ((double)(((5 - i) * 2)) / 100D) / 6;
+                //border.Margin = new Windows.UI.Xaml.Thickness(0, (5 - i) * 5, 0, 0);
+                //border.SetBackground(new SolidColorBrush(Color.FromArgb(255, (byte)rand.Next(0, 255), (byte)rand.Next(0, 255), (byte)rand.Next(0, 255))));
                 Canvas.SetZIndex(border, (int)i);
                 ListCard.Add(border);
                 CardCanvas.Children.Add(border);
@@ -202,7 +205,11 @@ namespace ProMe.ViewModel
 
             for (int i = 1; i <= ListCard.Count; i++)
             {
-                ListCard[i - 1].Margin = new Windows.UI.Xaml.Thickness(0, (ListCard.Count - i) * 5, 0, 0);
+                //ListCard[i - 1].Margin = new Windows.UI.Xaml.Thickness(0, (ListCard.Count - i) * 5, 0, 0);
+                var tempTransform = ListCard[i - 1].RenderTransform as CompositeTransform;
+                tempTransform.TranslateY = (ListCard.Count - i);
+                tempTransform.ScaleX = tempTransform.ScaleY = 1 - ((double)(ListCard.Count - i) * 2D) / 100D / 6D;
+
                 Canvas.SetZIndex(ListCard[i - 1], i);
                 ListCard[i - 1].Tag = i;
             }
