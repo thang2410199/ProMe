@@ -175,7 +175,7 @@ namespace ProMe.ViewModel
         private void Border_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
         {
             var transform = (sender as FrameworkElement).RenderTransform as CompositeTransform;
-            transform.Rotation += (e.Delta.Translation.X / ScreenWidth) * 50;
+            transform.Rotation += (e.Delta.Translation.X / ScreenWidth) * 12;
             if (Math.Abs(transform.Rotation) > 15)
                 e.Complete();
         }
