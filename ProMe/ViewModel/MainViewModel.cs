@@ -52,7 +52,12 @@ namespace ProMe.ViewModel
 
         public RelayCommand SwipeTestCommand { get; set; }
 
+        public RelayCommand GoToPromotionCommand { get; set; }
+
+        public RelayCommand GoToSettingCommand { get; set; }
+
         public ObservableCollection<Restaurant> Restaurants { get; set; }
+
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
@@ -74,12 +79,21 @@ namespace ProMe.ViewModel
             Restaurants = new ObservableCollection<Restaurant>();
 
             SwipeTestCommand = new RelayCommand(SwipeTest);
+            GoToPromotionCommand = new RelayCommand(GoToPromotion);
+            GoToSettingCommand = new RelayCommand(GoToSetting);
 
             Messenger.Default.Register<MainPageMessage>(this, ReceiveMessage);
         }
 
-        
+        private void GoToSetting()
+        {
+            NavigationService.NavigateTo(Pages.Setting);
+        }
 
+        private void GoToPromotion()
+        {
+            NavigationService.NavigateTo(Pages.Promotion);
+        }
 
         public void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -98,6 +112,7 @@ namespace ProMe.ViewModel
                 RestaurantCell border = new RestaurantCell();
                 var data = new Restaurant();
                 data.DealImage = "/Assets/Demo/deal_" + i.ToString() + ".jpg";
+                data.FriendRate = rand.Next(9);
                 border.DataContext = data;
                 border.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Stretch;
                 //border.ManipulationMode = Windows.UI.Xaml.Input.ManipulationModes.All;

@@ -66,6 +66,8 @@ namespace ProMe.ViewModel
                 CurrentRestaurant.Hashtags.Add("#wifimanh");
                 CurrentRestaurant.Hashtags.Add("#tradao");
                 CurrentRestaurant.Hashtags.Add("#yentinh");
+
+                CurrentRestaurant.Description = "Prevailed sincerity behaviour to so do principle mr. As departure at no propriety zealously my.";
             }
         }
 
@@ -94,6 +96,8 @@ namespace ProMe.ViewModel
                 CurrentRestaurant.Hashtags.Add("#wifimanh");
                 CurrentRestaurant.Hashtags.Add("#tradao");
                 CurrentRestaurant.Hashtags.Add("#yentinh");
+
+                CurrentRestaurant.Description = "Prevailed sincerity behaviour to so do principle mr. As departure at no propriety zealously my.";
             }
 
         }

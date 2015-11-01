@@ -2,7 +2,9 @@
                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:cell="using:ProMe.View.Cell"
+                    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                    xmlns:i="using:Microsoft.Xaml.Interactivity"
                     xmlns:local="using:ProMe.View"
                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                     xmlns:model="using:ProMe.Model"
@@ -25,24 +27,36 @@
         <Grid Height="56"
               VerticalAlignment="Top"
               Background="White">
-            <Border Width="40"
-                    Height="40"
-                    Margin="8"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Center"
-                    Background="Crimson" />
-            <Border Width="40"
-                    Height="40"
-                    Margin="8"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Background="Crimson" />
-            <Border Width="40"
-                    Height="40"
-                    Margin="8"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Center"
-                    Background="Crimson" />
+            <Image Width="40"
+                   Height="40"
+                   Margin="8"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Center"
+                   Source="ms-appx:///Assets/Demo/setting_icon.png">
+                <i:Interaction.Behaviors>
+                    <core:EventTriggerBehavior EventName="Tapped">
+                        <core:InvokeCommandAction Command="{Binding GoToSettingCommand}" />
+                    </core:EventTriggerBehavior>
+                </i:Interaction.Behaviors>
+            </Image>
+            <Image Width="40"
+                   Height="40"
+                   Margin="8"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Source="ms-appx:///Assets/Demo/app_icon.png" />
+            <Image Width="40"
+                   Height="40"
+                   Margin="8"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center"
+                   Source="ms-appx:///Assets/Demo/promo_icon.png">
+                <i:Interaction.Behaviors>
+                    <core:EventTriggerBehavior EventName="Tapped">
+                        <core:InvokeCommandAction Command="{Binding GoToPromotionCommand}" />
+                    </core:EventTriggerBehavior>
+                </i:Interaction.Behaviors>
+            </Image>
         </Grid>
 
         <!--<ListView ItemsSource="{Binding Restaurants}">
@@ -121,13 +135,13 @@
                      StrokeThickness="4" />
         </StackPanel>
 
-        <TextBlock Grid.Row="1"
-                   Margin="10"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Bottom"
-                   FontSize="16"
-                   Foreground="Navy"
-                   Text="Bạn biết tên quán?" />
+        <TextBox Grid.Row="1"
+                 Margin="10"
+                 HorizontalAlignment="Stretch"
+                 VerticalAlignment="Bottom"
+                 FontSize="16"
+                 Foreground="Navy"
+                 Text="Search your favorite shop" />
     </Grid>
 
     <!--<local:BindablePage.BottomAppBar>

@@ -23,24 +23,26 @@
         <Grid Height="56"
               VerticalAlignment="Top"
               Background="White">
-            <Border Width="40"
-                    Height="40"
-                    Margin="8"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Center"
-                    Background="Crimson" />
-            <Border Width="40"
-                    Height="40"
-                    Margin="8"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Center"
-                    Background="Crimson" />
-            <TextBlock Margin="8"
+            <Image Width="40"
+                   Height="40"
+                   Margin="8"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Center"
+                   Source="ms-appx:///Assets/Demo/back_icon.png" />
+            <Image Width="40"
+                   Height="40"
+                   Margin="8"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center"
+                   Source="ms-appx:///Assets/Demo/promo_icon.png" />
+            <TextBlock MaxWidth="200"
+                       Margin="8"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
                        FontSize="20"
-                       Foreground="Blue"
-                       Text="{Binding CurrentRestaurant.Name}" />
+                       Foreground="{StaticResource AppAccent}"
+                       Text="{Binding CurrentRestaurant.Name}"
+                       TextTrimming="CharacterEllipsis" />
         </Grid>
 
         <Grid x:Name="squareContainer" Grid.Row="1">
@@ -69,43 +71,37 @@
 
                         <TextBlock Margin="8"
                                    HorizontalAlignment="Left"
-                                   FontSize="16"
+                                   FontSize="20"
                                    Foreground="White"
                                    Text="{Binding CurrentRestaurant.Address}"
                                    TextWrapping="Wrap" />
 
-                        <Border Grid.Column="1"
-                                Width="24"
-                                Margin="8"
-                                HorizontalAlignment="Left"
-                                Background="Crimson">
-                            <i:Interaction.Behaviors>
-                                <core:EventTriggerBehavior EventName="Tapped">
-                                    <core:InvokeCommandAction Command="{Binding OpenRestaurantCommand}" />
-                                </core:EventTriggerBehavior>
-                            </i:Interaction.Behaviors>
-                        </Border>
+                        <Image Grid.Column="1"
+                               Width="24"
+                               Margin="8"
+                               HorizontalAlignment="Left"
+                               Source="ms-appx:///Assets/Demo/cup_icon.png" />
 
-                        <Border Grid.Column="1"
-                                Width="24"
-                                Margin="8,8,8,8"
-                                HorizontalAlignment="Right"
-                                Background="Crimson" />
+                        <Image Grid.Column="1"
+                               Width="24"
+                               Margin="8,8,8,8"
+                               HorizontalAlignment="Right"
+                               Source="ms-appx:///Assets/Demo/price_rate.png" />
 
-                        <Border Grid.Column="1"
-                                Width="24"
-                                Margin="8,8,40,8"
-                                HorizontalAlignment="Right"
-                                Background="Crimson" />
+                        <Image Grid.Column="1"
+                               Width="24"
+                               Margin="8,8,40,8"
+                               HorizontalAlignment="Right"
+                               Source="ms-appx:///Assets/Demo/price_rate.png" />
 
-                        <Border Grid.Column="1"
-                                Width="24"
-                                Margin="8,8,72,8"
-                                HorizontalAlignment="Right"
-                                Background="Crimson" />
+                        <Image Grid.Column="1"
+                               Width="24"
+                               Margin="8,8,72,8"
+                               HorizontalAlignment="Right"
+                               Source="ms-appx:///Assets/Demo/price_rate.png" />
                     </Grid>
 
-                    <GridView Height="68" ItemsSource="{Binding CurrentRestaurant.Hashtags}">
+                    <GridView Height="76" ItemsSource="{Binding CurrentRestaurant.Hashtags}">
                         <GridView.ItemTemplate>
                             <DataTemplate>
                                 <Border Height="30"
@@ -117,6 +113,30 @@
                             </DataTemplate>
                         </GridView.ItemTemplate>
                     </GridView>
+
+                    <TextBlock Margin="8,16"
+                               FontSize="20"
+                               Text="{Binding CurrentRestaurant.Description}"
+                               TextWrapping="Wrap" />
+
+                    <Grid Margin="8,0">
+                        <TextBlock HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   FontSize="20"
+                                   Text="We are also on Instagram!" />
+
+                        <Border HorizontalAlignment="Right"
+                                Background="{StaticResource AppAccent}"
+                                CornerRadius="4">
+                            <StackPanel Margin="8,10" Orientation="Horizontal">
+                                <Image Width="20"
+                                       Height="20"
+                                       Margin="0,0,10,0"
+                                       Source="ms-appx:///Assets/Demo/instagram_icon.png" />
+                                <TextBlock FontSize="20" Text="Connect" />
+                            </StackPanel>
+                        </Border>
+                    </Grid>
 
 
                 </StackPanel>

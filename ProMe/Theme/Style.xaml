@@ -21,4 +21,6 @@
         <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
     </Style>
+
+    <SolidColorBrush x:Key="AppAccent" Color="#ed4137" />
 </ResourceDictionary>

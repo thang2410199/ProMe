@@ -18,6 +18,9 @@ namespace ProMe
             PageDictionary.Add(Pages.Intro, typeof(IntroPage));
             PageDictionary.Add(Pages.MainPage, typeof(MainPage));
             PageDictionary.Add(Pages.RestaurantDetailPage, typeof(RestaurantDetailPage));
+            PageDictionary.Add(Pages.Wallet, typeof(WalletPage));
+            PageDictionary.Add(Pages.Promotion, typeof(PromotionPage));
+            PageDictionary.Add(Pages.Setting, typeof(SettingPage));
 
             MainFrame = frame;
         }

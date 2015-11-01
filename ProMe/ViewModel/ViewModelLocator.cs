@@ -50,6 +50,9 @@ namespace ProMe.ViewModel
             SimpleIoc.Default.Register<IntroViewModel>();
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<RestaurantDetailViewModel>();
+            SimpleIoc.Default.Register<PromotionViewModel>();
+            SimpleIoc.Default.Register<WalletViewModel>();
+            SimpleIoc.Default.Register<SettingViewModel>();
         }
 
         public MainViewModel Main
@@ -65,6 +68,30 @@ namespace ProMe.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<RestaurantDetailViewModel>();
+            }
+        }
+
+        public PromotionViewModel Promotion
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<PromotionViewModel>();
+            }
+        }
+
+        public SettingViewModel Setting
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<SettingViewModel>();
+            }
+        }
+
+        public WalletViewModel Wallet
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<WalletViewModel>();
             }
         }
 
@@ -98,6 +125,9 @@ namespace ProMe.ViewModel
     {
         Intro,
         MainPage,
-        RestaurantDetailPage
+        RestaurantDetailPage,
+        Wallet,
+        Promotion,
+        Setting
     }
 }

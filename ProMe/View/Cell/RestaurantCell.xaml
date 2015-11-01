@@ -36,33 +36,55 @@
                     </Grid.ColumnDefinitions>
 
                     <TextBlock Margin="8"
-                               Foreground="Black"
+                               Foreground="{StaticResource AppAccent}"
                                Text="{Binding Name}"
                                TextWrapping="Wrap" />
 
                     <Border Grid.Column="1"
                             Width="24"
                             Margin="8"
+                            HorizontalAlignment="Left">
+                        <Border.Background>
+                            <ImageBrush ImageSource="ms-appx:///Assets/Demo/friend_rate.png" Stretch="Uniform" />
+                        </Border.Background>
+                    </Border>
+
+                    <Border Grid.Column="1"
+                            Width="16"
+                            Height="16"
+                            Margin="30,0,0,24"
                             HorizontalAlignment="Left"
-                            Background="Crimson" />
+                            Background="{StaticResource AppAccent}"
+                            CornerRadius="8,8,8,0">
+                        <TextBlock Text="{Binding FriendRate}" />
+                    </Border>
 
                     <Border Grid.Column="1"
                             Width="24"
                             Margin="8,8,8,8"
-                            HorizontalAlignment="Right"
-                            Background="Crimson" />
+                            HorizontalAlignment="Right">
+                        <Border.Background>
+                            <ImageBrush ImageSource="ms-appx:///Assets/Demo/rating.png" Stretch="Uniform" />
+                        </Border.Background>
+                    </Border>
 
                     <Border Grid.Column="1"
                             Width="24"
                             Margin="8,8,40,8"
-                            HorizontalAlignment="Right"
-                            Background="Crimson" />
+                            HorizontalAlignment="Right">
+                        <Border.Background>
+                            <ImageBrush ImageSource="ms-appx:///Assets/Demo/rating.png" Stretch="Uniform" />
+                        </Border.Background>
+                    </Border>
 
                     <Border Grid.Column="1"
                             Width="24"
                             Margin="8,8,72,8"
-                            HorizontalAlignment="Right"
-                            Background="Crimson" />
+                            HorizontalAlignment="Right">
+                        <Border.Background>
+                            <ImageBrush ImageSource="ms-appx:///Assets/Demo/rating.png" Stretch="Uniform" />
+                        </Border.Background>
+                    </Border>
 
                 </Grid>
             </Border>

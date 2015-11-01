@@ -12,7 +12,32 @@ namespace ProMe.Model
 {
     public class Restaurant : ObservableObject
     {
+        private string _Description = "";
+        public string Description
+        {
+            get
+            {
+                return _Description;
+            }
+            set
+            {
+                Set(ref _Description, value);
+            }
+        }
 
+        private int _FriendRate = 0;
+
+        public int FriendRate
+        {
+            get
+            {
+                return _FriendRate;
+            }
+            set
+            {
+                Set(ref _FriendRate, value);
+            }
+        }
 
         private string _Name = "";
 
