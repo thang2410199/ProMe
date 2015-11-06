@@ -36,8 +36,9 @@
 
         <Grid Grid.Row="1">
             <Pivot Margin="0,-28,0,0">
-                <PivotItem Margin="0"></PivotItem>
-                <PivotItem Margin="0"></PivotItem>
+                <Pivot.ItemTemplate>
+                    <DataTemplate />
+                </Pivot.ItemTemplate>
             </Pivot>
         </Grid>
     </Grid>

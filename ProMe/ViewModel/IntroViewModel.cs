@@ -2,6 +2,7 @@
 using GalaSoft.MvvmLight;
 using Windows.UI.Xaml.Navigation;
 using GalaSoft.MvvmLight.Command;
+using System.Diagnostics;
 
 namespace ProMe.ViewModel
 {
@@ -16,8 +17,17 @@ namespace ProMe.ViewModel
             FB_LoginCommand = new RelayCommand(FB_Login);
         }
 
-        private void FB_Login()
+        private async void FB_Login()
         {
+            App.SocialAuthentication.AuthenSuccessed += SocialAuthentication_AuthenSuccessed;
+            await App.SocialAuthentication.AuthenFacebook();
+            
+        }
+
+        private void SocialAuthentication_AuthenSuccessed(string accessToken)
+        {
+            App.SocialAuthentication.AuthenSuccessed -= SocialAuthentication_AuthenSuccessed;
+            Debug.WriteLine(accessToken);
             NavigationService.NavigateTo(Pages.MainPage);
         }
 

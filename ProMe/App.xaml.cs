@@ -1,4 +1,5 @@
-﻿using ProMe.ViewModel;
+﻿using ProMe.Helper;
+using ProMe.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -29,7 +30,13 @@ namespace ProMe
     /// </summary>
     public sealed partial class App : Application
     {
+        public delegate void OnProtocolActivatedEventHandler(App sender, string FBtoken);
+
+        public static event OnProtocolActivatedEventHandler OnProtocolActivated;
+
         private TransitionCollection transitions;
+
+        public static ThSocialAuthentication SocialAuthentication = new ThSocialAuthentication();
 
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
@@ -41,6 +48,7 @@ namespace ProMe
             this.Suspending += this.OnSuspending;
             this.UnhandledException += App_UnhandledException;
             HardwareButtons.BackPressed += HardwareButtons_BackPressed;
+            SocialAuthentication.InitFacebook("1392128224447445", "12955a37544b41e1b84bbd2a74737dd8");
         }
 
         private void App_UnhandledException(object sender, UnhandledExceptionEventArgs e)
@@ -126,6 +134,32 @@ namespace ProMe
             }
             // Ensure the current window is active
             Window.Current.Activate();
+        }
+
+        protected override void OnActivated(IActivatedEventArgs e)
+        {
+            if (e.Kind == ActivationKind.Protocol)
+            {
+                var protocolArgs = e as ProtocolActivatedEventArgs;
+                var uri = protocolArgs.Uri;
+
+                if (uri.AbsoluteUri.IndexOf("?access_token=") != -1)
+                {
+                    int Start = uri.AbsoluteUri.IndexOf("?access_token=");
+                    int offset = ("?access_token=").Length;
+                    int End = uri.AbsoluteUri.IndexOf("&expires_in");
+                    string FBtoken = uri.AbsoluteUri.Substring(Start + offset, End - Start - offset);
+                    if (OnProtocolActivated != null)
+                        OnProtocolActivated.Invoke(this, FBtoken);
+                }
+                else
+                {
+                    SocialAuthentication.RaiseAuthenFail();
+                }
+                return;
+            }
+
+            base.OnActivated(e);
         }
 
         /// <summary>

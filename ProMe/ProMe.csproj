@@ -87,6 +87,7 @@
     <Compile Include="Helper\DesignValue.cs" />
     <Compile Include="Helper\FlipViewExtensions.cs" />
     <Compile Include="Helper\NavigationService.cs" />
+    <Compile Include="Helper\ThSocialAuthentication.cs" />
     <Compile Include="Message\MainPageMessage.cs" />
     <Compile Include="Model\Restaurant.cs" />
     <Compile Include="Model\RestaurantImage.cs" />

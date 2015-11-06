@@ -48,7 +48,26 @@
         <Grid x:Name="squareContainer" Grid.Row="1">
             <ScrollViewer>
                 <StackPanel>
-                    <FlipView Height="{Binding ScreenWidth}"
+                    <Pivot Height="{Binding ScreenWidth}"
+                           ItemsSource="{Binding CurrentRestaurant.Images}"
+                           Style="{StaticResource PivotNoHeader}">
+                        <Pivot.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <TextBlock HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               FontSize="20"
+                                               Text="{Binding Url}" />
+                                </Grid>
+                            </DataTemplate>
+                        </Pivot.ItemTemplate>
+                        <Pivot.HeaderTemplate>
+                            <DataTemplate>
+                                
+                            </DataTemplate>
+                        </Pivot.HeaderTemplate>
+                    </Pivot>
+                    <!--<FlipView Height="{Binding ScreenWidth}"
                               ItemsSource="{Binding CurrentRestaurant.Images}"
                               helper:FlipViewExtensions.IsLooping="True">
                         <FlipView.ItemTemplate>
@@ -61,7 +80,7 @@
                                 </Grid>
                             </DataTemplate>
                         </FlipView.ItemTemplate>
-                    </FlipView>
+                    </FlipView>-->
 
                     <Grid Height="40">
                         <Grid.ColumnDefinitions>
