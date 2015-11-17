@@ -7,6 +7,7 @@
                     xmlns:i="using:Microsoft.Xaml.Interactivity"
                     xmlns:local="using:ProMe.View"
                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    xmlns:xaml="using:WinRTXamlToolkit.Controls"
                     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
                     DataContext="{Binding RestaurantDetail,
                                           Mode=OneWay,
@@ -23,12 +24,17 @@
         <Grid Height="56"
               VerticalAlignment="Top"
               Background="White">
-            <Image Width="40"
-                   Height="40"
-                   Margin="8"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Center"
-                   Source="ms-appx:///Assets/Demo/back_icon.png" />
+
+            <xaml:ImageButton Width="40"
+                              Height="40"
+                              Margin="8"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Center"
+                              Command="{Binding GoBackCommand}"
+                              NormalStateImageSource="ms-appx:///Assets/Demo/back_icon.png"
+                              PressedStateImageSource="ms-appx:///Assets/Demo/back_icon.png"
+                              Stretch="Uniform" />
+
             <Image Width="40"
                    Height="40"
                    Margin="8"
@@ -54,17 +60,12 @@
                         <Pivot.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
-                                    <TextBlock HorizontalAlignment="Center"
-                                               VerticalAlignment="Center"
-                                               FontSize="20"
-                                               Text="{Binding Url}" />
+                                    <Image Source="{Binding Url}" Stretch="None" />
                                 </Grid>
                             </DataTemplate>
                         </Pivot.ItemTemplate>
                         <Pivot.HeaderTemplate>
-                            <DataTemplate>
-                                
-                            </DataTemplate>
+                            <DataTemplate />
                         </Pivot.HeaderTemplate>
                     </Pivot>
                     <!--<FlipView Height="{Binding ScreenWidth}"
@@ -157,6 +158,19 @@
                         </Border>
                     </Grid>
 
+
+                    <GridView ScrollViewer.HorizontalScrollMode="Disabled" ScrollViewer.VerticalScrollMode="Disabled">
+                        <GridViewItem Width="110"
+                                      Height="70"
+                                      Margin="6"
+                                      Background="Gray" />
+                        <GridViewItem Width="110"
+                                      Height="70"
+                                      Background="Gray" />
+                        <GridViewItem Width="110"
+                                      Height="70"
+                                      Background="Gray" />
+                    </GridView>
 
                 </StackPanel>
             </ScrollViewer>

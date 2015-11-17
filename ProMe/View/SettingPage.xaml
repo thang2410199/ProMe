@@ -1,9 +1,11 @@
 ﻿<Page x:Class="ProMe.View.SettingPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:c4f="using:Coding4Fun.Toolkit.Controls"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="using:ProMe.View"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:xaml="using:WinRTXamlToolkit.Controls"
       Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
       DataContext="{Binding Setting,
                             Mode=OneWay,
@@ -19,12 +21,16 @@
         <Grid Height="56"
               VerticalAlignment="Top"
               Background="White">
-            <Image Width="40"
-                   Height="40"
-                   Margin="8"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Center"
-                   Source="ms-appx:///Assets/Demo/back_icon.png" />
+
+            <xaml:ImageButton Width="40"
+                              Height="40"
+                              Margin="8"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Center"
+                              Command="{Binding GoBackCommand}"
+                              NormalStateImageSource="ms-appx:///Assets/Demo/back_icon.png"
+                              PressedStateImageSource="ms-appx:///Assets/Demo/back_icon.png"
+                              Stretch="Uniform" />
 
             <Image Width="40"
                    Height="40"
@@ -32,6 +38,92 @@
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
                    Source="ms-appx:///Assets/Demo/setting_icon.png" />
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.Background>
+                <ImageBrush ImageSource="ms-appx:///Assets/Demo/deal_1.jpg" Stretch="Fill" />
+            </Grid.Background>
+
+            <Rectangle Fill="Gray" Opacity="0.7" />
+
+            <ScrollViewer>
+                <StackPanel>
+                    <Ellipse Width="120"
+                             Height="120"
+                             Margin="0,10,0,0">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="{Binding User.Avatar}" Stretch="Fill" />
+                        </Ellipse.Fill>
+                    </Ellipse>
+
+                    <TextBlock FontSize="40"
+                               FontWeight="Bold"
+                               Text="{Binding User.Username}" />
+
+                    <TextBlock FontSize="20" Text="View Profile" />
+
+                    <ListViewItem Margin="10">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Width="60"
+                                   Height="60"
+                                   Source="ms-appx:///Assets/Demo/PREFERENCES.png" />
+
+                            <StackPanel>
+                                <TextBlock FontSize="20"
+                                           FontWeight="SemiBold"
+                                           Text="Discovery Preferences" />
+                                <TextBlock HorizontalAlignment="Left" Text="Lorem ipsum" />
+                            </StackPanel>
+                        </StackPanel>
+                    </ListViewItem>
+
+                    <ListViewItem Margin="10">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Width="60"
+                                   Height="60"
+                                   Source="ms-appx:///Assets/Demo/ACCOUNT SETTING.png" />
+
+                            <StackPanel>
+                                <TextBlock FontSize="20"
+                                           FontWeight="SemiBold"
+                                           Text="App Setting" />
+                                <TextBlock HorizontalAlignment="Left" Text="Notifications, account and more" />
+                            </StackPanel>
+                        </StackPanel>
+                    </ListViewItem>
+
+                    <ListViewItem Margin="10">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Width="60"
+                                   Height="60"
+                                   Source="ms-appx:///Assets/Demo/FAQ.png" />
+
+                            <StackPanel>
+                                <TextBlock FontSize="20"
+                                           FontWeight="SemiBold"
+                                           Text="Need Our Help?" />
+                                <TextBlock HorizontalAlignment="Left" Text="FAQs, contact and more" />
+                            </StackPanel>
+                        </StackPanel>
+                    </ListViewItem>
+
+                    <ListViewItem Margin="10">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Width="60"
+                                   Height="60"
+                                   Source="ms-appx:///Assets/Demo/INVITE FRIEND.png" />
+
+                            <StackPanel>
+                                <TextBlock FontSize="20"
+                                           FontWeight="SemiBold"
+                                           Text="Invite your mates" />
+                                <TextBlock HorizontalAlignment="Left" Text="More friends more fun!" />
+                            </StackPanel>
+                        </StackPanel>
+                    </ListViewItem>
+                </StackPanel>
+            </ScrollViewer>
         </Grid>
     </Grid>
 </Page>

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest" xmlns:m3="http://schemas.microsoft.com/appx/2014/manifest" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest">
-  <Identity Name="18582StarfrostStudio.ProMeBeta" Publisher="CN=BE39D269-678F-4C2F-8AE2-7B113A4A9F5F" Version="1.1.0.3" />
+  <Identity Name="18582StarfrostStudio.ProMeBeta" Publisher="CN=BE39D269-678F-4C2F-8AE2-7B113A4A9F5F" Version="1.1.0.5" />
   <mp:PhoneIdentity PhoneProductId="12955a37-544b-41e1-b84b-bd2a74737dd8" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>Pro Me Beta</DisplayName>

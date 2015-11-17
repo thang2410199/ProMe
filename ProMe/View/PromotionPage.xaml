@@ -6,6 +6,7 @@
       xmlns:i="using:Microsoft.Xaml.Interactivity"
       xmlns:local="using:ProMe.View"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:xaml="using:WinRTXamlToolkit.Controls"
       Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
       DataContext="{Binding Promotion,
                             Mode=OneWay,
@@ -21,12 +22,15 @@
         <Grid Height="56"
               VerticalAlignment="Top"
               Background="White">
-            <Image Width="40"
-                   Height="40"
-                   Margin="8"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Center"
-                   Source="ms-appx:///Assets/Demo/back_icon.png" />
+            <xaml:ImageButton Width="40"
+                              Height="40"
+                              Margin="8"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Center"
+                              Command="{Binding GoBackCommand}"
+                              NormalStateImageSource="ms-appx:///Assets/Demo/back_icon.png"
+                              PressedStateImageSource="ms-appx:///Assets/Demo/back_icon.png"
+                              Stretch="Uniform" />
 
             <Image Width="40"
                    Height="40"
@@ -48,5 +52,50 @@
                 </i:Interaction.Behaviors>
             </Image>
         </Grid>
+
+        <ScrollViewer Grid.Row="1">
+            <StackPanel>
+                <xaml:SquareGrid VerticalAlignment="Top">
+                    <Grid>
+                        <Image Source="ms-appx:///Assets/Demo/deal_5.jpg" />
+                        <Image Width="200"
+                               HorizontalAlignment="Right"
+                               VerticalAlignment="Bottom"
+                               Source="ms-appx:///Assets/Demo/COUNTDOWN.png" />
+                    </Grid>
+                </xaml:SquareGrid>
+
+                <ListViewItem Margin="10">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Width="60"
+                               Height="60"
+                               Source="ms-appx:///Assets/Demo/ORICO.png" />
+
+                        <StackPanel>
+                            <TextBlock HorizontalAlignment="Left"
+                                       FontSize="20"
+                                       Text="ORICO" />
+                            <TextBlock HorizontalAlignment="Left" Text="Tặng 20 ly nước miễn phí" />
+                        </StackPanel>
+                    </StackPanel>
+                </ListViewItem>
+
+                <ListViewItem Margin="10">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Width="60"
+                               Height="60"
+                               Source="ms-appx:///Assets/Demo/MOCKING BIRD.png" />
+
+                        <StackPanel>
+                            <TextBlock HorizontalAlignment="Left"
+                                       FontSize="20"
+                                       Text="MOCKING BIRD" />
+                            <TextBlock HorizontalAlignment="Left" Text="giảm 20% tổng hóa đơn" />
+                        </StackPanel>
+                    </StackPanel>
+                </ListViewItem>
+            </StackPanel>
+        </ScrollViewer>
+
     </Grid>
 </Page>

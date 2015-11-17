@@ -12,10 +12,20 @@ namespace ProMe.ViewModel
     public class PromotionViewModel : ViewModelBase, INavigable
     {
         public RelayCommand GoToWalletCommand { get; set; }
+        public RelayCommand GoBackCommand { get; set; }
 
         public PromotionViewModel()
         {
             GoToWalletCommand = new RelayCommand(GoToWallet);
+            GoBackCommand = new RelayCommand(GoBack);
+        }
+
+        private void GoBack()
+        {
+            if (AllowGoBack())
+            {
+                NavigationService.GoBack();
+            }
         }
 
         private void GoToWallet()

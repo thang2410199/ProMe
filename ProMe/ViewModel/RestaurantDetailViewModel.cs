@@ -22,6 +22,17 @@ namespace ProMe.ViewModel
 {
     public class RestaurantDetailViewModel : ViewModelBase, INavigable
     {
+
+        public RelayCommand GoBackCommand { get; set; }
+
+
+        private void GoBack()
+        {
+            if (AllowGoBack())
+            {
+                NavigationService.GoBack();
+            }
+        }
         private Restaurant _CurrentRestaurant = null;
         public Restaurant CurrentRestaurant
         {
@@ -57,10 +68,10 @@ namespace ProMe.ViewModel
             if (IsInDesignMode)
             {
                 CurrentRestaurant = new Restaurant();
-                CurrentRestaurant.Images.Add(new RestaurantImage("test 1"));
-                CurrentRestaurant.Images.Add(new RestaurantImage("test 2"));
-                CurrentRestaurant.Images.Add(new RestaurantImage("test 3"));
-                CurrentRestaurant.Images.Add(new RestaurantImage("test 4"));
+                CurrentRestaurant.Images.Add(new RestaurantImage("ms-appx:///Assets/Demo/deal_1.jpg"));
+                CurrentRestaurant.Images.Add(new RestaurantImage("ms-appx:///Assets/Demo/deal_2.jpg"));
+                CurrentRestaurant.Images.Add(new RestaurantImage("ms-appx:///Assets/Demo/deal_3.jpg"));
+                CurrentRestaurant.Images.Add(new RestaurantImage("ms-appx:///Assets/Demo/deal_4.jpg"));
 
                 CurrentRestaurant.Hashtags.Add("#viewdep");
                 CurrentRestaurant.Hashtags.Add("#wifimanh");
@@ -69,6 +80,7 @@ namespace ProMe.ViewModel
 
                 CurrentRestaurant.Description = "Prevailed sincerity behaviour to so do principle mr. As departure at no propriety zealously my.";
             }
+            GoBackCommand = new RelayCommand(GoBack);
         }
 
         public bool AllowGoBack()
@@ -87,10 +99,10 @@ namespace ProMe.ViewModel
             //TEST DATA
             if (CurrentRestaurant.Images.Count == 0)
             {
-                CurrentRestaurant.Images.Add(new RestaurantImage("test 1"));
-                CurrentRestaurant.Images.Add(new RestaurantImage("test 2"));
-                CurrentRestaurant.Images.Add(new RestaurantImage("test 3"));
-                CurrentRestaurant.Images.Add(new RestaurantImage("test 4"));
+                CurrentRestaurant.Images.Add(new RestaurantImage("ms-appx:///Assets/Demo/deal_1.jpg"));
+                CurrentRestaurant.Images.Add(new RestaurantImage("ms-appx:///Assets/Demo/deal_2.jpg"));
+                CurrentRestaurant.Images.Add(new RestaurantImage("ms-appx:///Assets/Demo/deal_3.jpg"));
+                CurrentRestaurant.Images.Add(new RestaurantImage("ms-appx:///Assets/Demo/deal_4.jpg"));
 
                 CurrentRestaurant.Hashtags.Add("#viewdep");
                 CurrentRestaurant.Hashtags.Add("#wifimanh");

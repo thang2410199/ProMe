@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ProMe.Model
 {
-    public class Restaurant : ObservableObject
+    public class Restaurant : ObservableObject, IComparable
     {
         private string _Description = "";
         public string Description
@@ -78,6 +78,17 @@ namespace ProMe.Model
             }
         }
 
+        public string GroupHeader
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(Name))
+                    return "";
+                else
+                    return Name[0].ToString().ToUpper();
+            }
+        }
+
         public ObservableCollection<RestaurantImage> Images { get; set; } = new ObservableCollection<RestaurantImage>();
         public ObservableCollection<string> Hashtags { get; set; } = new ObservableCollection<string>();
 
@@ -103,6 +114,13 @@ namespace ProMe.Model
         public override string ToString()
         {
             return Name;
+        }
+
+        public int CompareTo(object obj)
+        {
+            Restaurant res = obj as Restaurant;
+            return String.Compare(this.Name, res.Name);
+
         }
     }
 }
