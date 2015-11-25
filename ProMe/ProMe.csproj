@@ -150,8 +150,10 @@
     <Content Include="Assets\Demo\deal_3.jpg" />
     <Content Include="Assets\Demo\FAQ.png" />
     <Content Include="Assets\Demo\friend_rate.png" />
+    <Content Include="Assets\Demo\H.png" />
     <Content Include="Assets\Demo\instagram_icon.png" />
     <Content Include="Assets\Demo\INVITE FRIEND.png" />
+    <Content Include="Assets\Demo\L.png" />
     <Content Include="Assets\Demo\MOCKING BIRD.png" />
     <Content Include="Assets\Demo\ORICO.png" />
     <Content Include="Assets\Demo\PREFERENCES.png" />
@@ -160,6 +162,7 @@
     <Content Include="Assets\Demo\rating.png" />
     <Content Include="Assets\Demo\setting_icon.png" />
     <Content Include="Assets\Demo\wallet_icon.png" />
+    <Content Include="Assets\Demo\X.png" />
     <Content Include="Assets\Logo.scale-240.png" />
     <Content Include="Assets\SmallLogo.scale-240.png" />
     <Content Include="Assets\SplashScreen.scale-240.png" />

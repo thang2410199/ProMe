@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using GalaSoft.MvvmLight;
 using Windows.UI.Xaml.Navigation;
 using System.Collections.ObjectModel;
@@ -65,10 +65,10 @@ namespace ProMe.ViewModel
         {
             if (IsInDesignMode)
             {
-            //    // Code runs in Blend --> create design time data.
-            //    PageTitle = "Hello Designer";
+                //    // Code runs in Blend --> create design time data.
+                //    PageTitle = "Hello Designer";
 
-            //    Restaurants.Add(new Restaurant() { Name = "Dai Phi" });
+                //    Restaurants.Add(new Restaurant() { Name = "Dai Phi" });
             }
             else
             {
@@ -107,10 +107,20 @@ namespace ProMe.ViewModel
             CardCanvas = e.CardStack;
             ListCard = new List<RestaurantCell>();
             Random rand = new Random();
+            var Names = new List<string>()
+            {
+                "BookCoffee",
+                "Bún Cô Ba",
+                "KFC",
+                "Pizza Hut",
+                "Yuyumi"
+            };
             for (int i = 1; i <= 5; i++)
             {
                 RestaurantCell border = new RestaurantCell();
                 var data = new Restaurant();
+                data.Name = Names[i - 1];
+
                 data.DealImage = "/Assets/Demo/deal_" + i.ToString() + ".jpg";
                 data.FriendRate = rand.Next(9);
                 border.DataContext = data;
@@ -180,6 +190,23 @@ namespace ProMe.ViewModel
             storyboard.Children.Add(animation);
             storyboard.Completed += Storyboard_Completed;
             storyboard.Begin();
+
+            var Wallet = (new ViewModelLocator()).Wallet;
+            var current_res = ListCard.LastOrDefault().DataContext as Restaurant;
+            var res = Wallet.Restaurants.Where(r => r.Name == current_res.Name).FirstOrDefault();
+            if (res == null)
+            {
+
+                if (IsRight)
+                {
+                    //Move to quán ruột
+                    Wallet.Restaurants.Add(current_res);
+            }
+                else
+                {
+
+                }
+            }
         }
 
         private void Storyboard_Completed(object sender, object e)
@@ -197,7 +224,7 @@ namespace ProMe.ViewModel
 
         private void Border_ManipulationStarted(object sender, ManipulationStartedRoutedEventArgs e)
         {
-            
+
         }
 
         private void SwipeTest()

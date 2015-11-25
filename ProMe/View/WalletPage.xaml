@@ -1,4 +1,4 @@
-﻿<Page x:Class="ProMe.View.WalletPage"
+﻿<local:BindablePage x:Class="ProMe.View.WalletPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:controls="using:ProMe.CustomControls"
@@ -216,4 +216,4 @@
             </Pivot>
         </Grid>
     </Grid>
-</Page>
+</local:BindablePage>
